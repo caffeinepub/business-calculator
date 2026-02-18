@@ -1,0 +1,55 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Business Calculator: Add SOR Date and Order Date columns",
+  "requirements": [
+    {
+      "id": "REQ-22",
+      "summary": "Add fixed inline-editable SOR Date and Order Date columns to the main Business Calculations table in the correct positions without breaking table layout/scrolling.",
+      "acceptanceCriteria": [
+        "The table header shows columns in this order: \"Sr No\", \"SOR Date\", \"SOR No\", ... and ... \"Status\", \"Order Date\", \"Order No\", ... (with all other existing columns preserved in their current relative order).",
+        "When editing an existing row, both date cells are editable inline and save/cancel behaves the same as other editable cells.",
+        "When creating a new row, both date cells are present and editable inline before saving the new record.",
+        "The visual styling and spacing of the new columns match the existing table style and do not break horizontal scrolling or header alignment."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/business/EditableCell.tsx",
+          "operation": "modify",
+          "description": "Extend the existing inline editing cell to support a date input mode (e.g., using the existing shadcn/ui Input component with a date-capable input type) while preserving current behaviors for text/number/select. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/business/BusinessCalculationsTable.tsx",
+          "operation": "modify",
+          "description": "Insert the new fixed columns into the table header and row rendering: add \"SOR Date\" immediately before \"SOR No\", and add \"Order Date\" immediately before \"Order No\". Ensure both columns are included in both the existing-row edit flow and the new-row creation flow, and update any fixed-column counts/width assumptions so horizontal scrolling and header/body alignment remain correct. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Extend BusinessRecord types and the frontend mock data layer so sorDate and orderDate flow through create/update/list without runtime or type errors.",
+      "acceptanceCriteria": [
+        "`BusinessRecord` and `BusinessRecordInput` include `sorDate` and `orderDate` fields.",
+        "Creating a new record includes `sorDate` and `orderDate` values in the stored record object (including the current mock implementation in `useQueries.ts`).",
+        "Existing mock records are updated to include valid `sorDate` and `orderDate` values (or empty values) so the table renders without missing-field issues."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/types/businessRecord.ts",
+          "operation": "modify",
+          "description": "Add `sorDate` and `orderDate` fields to `BusinessRecord` and ensure `BusinessRecordInput` reflects the new fields so create/update flows are type-safe."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Update the in-memory mock records to include `sorDate` and `orderDate` values (ISO date strings or empty strings) and ensure the mock create/update logic preserves these fields so list/create/update continue to work end-to-end."
+        },
+        {
+          "path": "frontend/src/components/business/BusinessCalculationsTable.tsx",
+          "operation": "modify",
+          "description": "Update the new-record initialization defaults to include `sorDate` and `orderDate` (e.g., empty string defaults) so the add-new inline row includes editable date cells without undefined-field issues. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

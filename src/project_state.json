@@ -1,0 +1,248 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 15,
+  "summary": "Website for business calculations with a column-based table to enter, view, and track items, with a sky-blue/white theme and support for user-customizable columns.",
+  "architectural_notes": [
+    "Support a flexible record schema to accommodate user-defined (custom) columns."
+  ],
+  "known_issues": [
+    "App theme is not correctly applied as sky-blue and white as required (appears inconsistent/wrong theme)."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-main-table-screen-that-displays-business-calculation-records-in-a-column-based-format-with-the-exact-columns-sr-no-sor-no-item-quantity-rate-amount-status-order-no-order-quantity-order-rate-order-gst-order-amount-supplier-supplier-name-final-status",
+      "title": "Create a main table screen that displays business calculation records in a column-based format with the exact columns: Sr. No., SOR no., Item, quantity, rate, Amount, status, order no., Order quantity, order rate, order GST, order amount, supplier, supplier name, final status.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-table-interactions-to-add-edit-and-delete-records-from-the-ui-with-inline-editable-cells-text-number-inputs-and-dropdowns-where-appropriate",
+      "title": "Provide table interactions to add, edit, and delete records from the UI, with inline editable cells (text/number inputs and dropdowns where appropriate).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-automatic-calculations-for-derived-fields-amount-quantity-rate-order-amount-order-quantity-order-rate-1-order-gst-100-recalculate-these-fields-immediately-when-dependent-inputs-change",
+      "title": "Implement automatic calculations for derived fields: Amount = quantity × rate; order amount = Order quantity × order rate × (1 + order GST/100). Recalculate these fields immediately when dependent inputs change.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-backend-persistence-for-records-in-the-single-motoko-actor-so-that-records-can-be-created-listed-updated-and-deleted-from-the-frontend",
+      "title": "Add backend persistence for records in the single Motoko actor so that records can be created, listed, updated, and deleted from the frontend.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-define-and-enforce-data-types-validation-rules-numeric-fields-quantity-rate-order-quantity-order-rate-order-gst-must-accept-only-valid-numbers-show-clear-inline-error-messages-for-invalid-input-and-prevent-saving-invalid-records",
+      "title": "Define and enforce data types/validation rules: numeric fields (quantity, rate, Order quantity, order rate, order GST) must accept only valid numbers; show clear inline error messages for invalid input and prevent saving invalid records.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-distinct-visual-theme-across-the-app-typography-spacing-table-styling-buttons-and-form-inputs-suitable-for-a-business-spreadsheet-like-workflow-using-a-warm-neutral-palette-with-emerald-accents-avoid-blue-purple",
+      "title": "Apply a coherent, distinct visual theme across the app (typography, spacing, table styling, buttons, and form inputs) suitable for a business spreadsheet-like workflow, using a warm neutral palette with emerald accents (avoid blue/purple).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-app-s-visual-theme-to-a-sky-blue-and-white-palette-across-backgrounds-table-styling-buttons-inputs-and-header-elements-remove-the-current-emerald-warm-neutral-look",
+      "title": "Update the app’s visual theme to a sky-blue and white palette across backgrounds, table styling, buttons, inputs, and header elements (remove the current emerald/warm-neutral look).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-ui-that-lets-users-create-rename-reorder-and-delete-custom-user-defined-columns-for-the-business-calculations-table",
+      "title": "Add a UI that lets users create, rename, reorder, and delete custom (user-defined) columns for the business calculations table.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-custom-columns-alongside-the-existing-fixed-business-columns-in-the-main-table-with-inline-editing-support-for-custom-column-cells-and-appropriate-validation-based-on-each-custom-column-s-type",
+      "title": "Render custom columns alongside the existing fixed business columns in the main table, with inline editing support for custom column cells and appropriate validation based on each custom column’s type.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-supplier-wise-report-view-that-groups-existing-business-records-by-suppliername-and-displays-each-group-with-a-subtotal-of-amount-calculated-as-quantity-rate",
+      "title": "Add a supplier-wise report view that groups existing business records by `supplierName` and displays each group with a subtotal of `Amount` (calculated as `quantity × rate`).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-show-totals-at-the-end-of-the-supplier-wise-report-including-1-a-subtotal-row-at-the-end-of-each-supplier-section-and-2-a-grand-total-row-at-the-very-end-of-the-report-across-all-suppliers",
+      "title": "Show totals at the end of the supplier-wise report, including (1) a subtotal row at the end of each supplier section and (2) a grand total row at the very end of the report across all suppliers.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-basic-export-print-option-for-the-supplier-wise-report-so-users-can-take-the-grouped-totals-outside-the-app",
+      "title": "Provide a basic export/print option for the supplier-wise report so users can take the grouped totals outside the app.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-the-app-s-visual-theme-consistently-sky-blue-and-white-across-all-pages-and-components-by-eliminating-conflicting-global-theme-definitions-and-ensuring-the-active-tailwind-css-variables-resolve-to-a-sky-blue-white-palette",
+      "title": "Make the app’s visual theme consistently sky-blue and white across all pages and components by eliminating conflicting global theme definitions and ensuring the active Tailwind CSS variables resolve to a sky-blue/white palette.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-global-theme-token-definitions-so-the-active-tailwind-semantic-colors-bg-background-bg-card-text-foreground-border-border-text-primary-bg-muted-bg-primary-etc-render-as-a-sky-blue-and-white-palette-in-the-running-app",
+      "title": "Fix the global theme token definitions so the active Tailwind semantic colors (bg-background, bg-card, text-foreground, border-border, text-primary, bg-muted/*, bg-primary/*, etc.) render as a sky-blue and white palette in the running app.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-eliminate-conflicting-or-incorrect-global-theme-sources-so-there-is-a-single-consistent-source-of-truth-for-css-variables-used-by-tailwind-theme-tokens-and-ensure-the-imported-global-stylesheet-defines-variables-in-the-format-expected-by-the-tailwind-config",
+      "title": "Eliminate conflicting or incorrect global theme sources so there is a single, consistent source of truth for CSS variables used by Tailwind theme tokens, and ensure the imported global stylesheet defines variables in the format expected by the Tailwind config.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-supplier-wise-report-page-to-group-records-by-supplier-name-and-display-per-record-order-fields-order-quantity-order-rate-order-gst-and-order-amount-calculated-as-orderquantity-orderrate-1-ordergst-100-along-with-a-total-amount-at-the-end-of-each-supplier-section-and-a-grand-total-at-the-end-of-the-report-based-on-order-amount",
+      "title": "Update the Supplier-Wise Report page to group records by supplier name and display per-record order fields: Order Quantity, Order Rate, Order GST, and Order Amount (calculated as orderQuantity × orderRate × (1 + orderGst/100)), along with a total amount at the end of each supplier section and a grand total at the end of the report based on Order Amount.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-supplier-wise-report-csv-export-to-include-the-same-order-related-columns-order-quantity-order-rate-order-gst-order-amount-and-ensure-subtotal-and-grand-total-rows-reflect-summed-order-amount-values",
+      "title": "Update the supplier-wise report CSV export to include the same order-related columns (Order Quantity, Order Rate, Order GST, Order Amount) and ensure subtotal and grand total rows reflect summed Order Amount values.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-two-new-fixed-date-columns-to-the-main-business-calculations-table-ui-1-sor-date-displayed-immediately-before-sor-no-and-2-order-date-displayed-immediately-before-order-no-both-columns-must-support-inline-add-edit-behavior-consistent-with-existing-fixed-columns",
+      "title": "Add two new fixed date columns to the main Business Calculations table UI: (1) \"SOR Date\" displayed immediately before \"SOR No\", and (2) \"Order Date\" displayed immediately before \"Order No\". Both columns must support inline add/edit behavior consistent with existing fixed columns.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extend-the-businessrecord-typescript-types-and-frontend-data-layer-to-include-the-two-new-fields-sordate-and-orderdate-and-ensure-these-fields-are-included-in-create-update-flows-and-mock-seed-data-so-the-app-continues-to-function-end-to-end-without-runtime-type-errors",
+      "title": "Extend the BusinessRecord TypeScript types and frontend data layer to include the two new fields: `sorDate` and `orderDate`, and ensure these fields are included in create/update flows and mock seed data so the app continues to function end-to-end without runtime/type errors.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a web app with a tabular data-entry/view interface for business calculations using columns: Sr. No., SOR no., Item, quantity, rate, Amount, status, order no., order quantity, order rate, order GST, order amount, supplier, supplier name, final status.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Update the app visual theme to sky blue and white across backgrounds, table styling, buttons, and inputs.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Allow users to create/manage multiple (custom) columns as per their needs (user-defined columns).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Persist custom column definitions and per-record custom column values in the Motoko backend so that they are retained across reloads and available to authenticated users when they return.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "If the backend’s persisted state schema must change to support custom columns, add a conditional migration to preserve existing stored data during upgrade.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add a report view/export that groups records by supplier name and shows a total amount at the end (per supplier and/or grand total).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Audit key UI surfaces (table headers/rows, buttons, dialogs, and highlight rows) and update any hardcoded/legacy color usages so they use the semantic Tailwind tokens (bg-background, bg-card, text-foreground, text-muted-foreground, text-primary, border-border, bg-muted/*, bg-primary/*) and visually match the sky-blue/white theme.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Audit key UI surfaces (table header/rows, buttons, dialogs, page headers/footers, and highlighted rows) and replace any remaining hardcoded/legacy color utility classes with semantic Tailwind tokens so they inherit the sky-blue/white theme consistently.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Enhance the supplier-wise report to display order quantity, order rate, order GST, and (order) amount per record, and show a total amount at the end of the report.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Add two new date columns to the main table: 'SOR Date' placed before 'SOR No.' and 'Order Date' placed before 'Order No.' (including support for entry/editing and persistence).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Update the Motoko backend BusinessRecord persistence to store and return the new `sorDate` and `orderDate` fields as part of business calculation records, so that when backend persistence is used these two date values round-trip correctly through create/list/update operations. Add a conditional migration if needed to preserve existing stored records during upgrade.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Business Calculator",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

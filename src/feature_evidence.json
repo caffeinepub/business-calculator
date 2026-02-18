@@ -1,0 +1,46 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-two-new-fixed-date-columns-to-the-main-business-calculations-table-ui-1-sor-date-displayed-immediately-before-sor-no-and-2-order-date-displayed-immediately-before-order-no-both-columns-must-support-inline-add-edit-behavior-consistent-with-existing-fixed-columns",
+      "featureTitle": "Add two new fixed date columns to the main Business Calculations table UI: (1) \"SOR Date\" displayed immediately before \"SOR No\", and (2) \"Order Date\" displayed immediately before \"Order No\". Both columns must support inline add/edit behavior consistent with existing fixed columns.",
+      "files": [
+        "frontend/src/components/business/BusinessCalculationsTable.tsx",
+        "frontend/src/components/business/EditableCell.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-extend-the-businessrecord-typescript-types-and-frontend-data-layer-to-include-the-two-new-fields-sordate-and-orderdate-and-ensure-these-fields-are-included-in-create-update-flows-and-mock-seed-data-so-the-app-continues-to-function-end-to-end-without-runtime-type-errors",
+      "featureTitle": "Extend the BusinessRecord TypeScript types and frontend data layer to include the two new fields: `sorDate` and `orderDate`, and ensure these fields are included in create/update flows and mock seed data so the app continues to function end-to-end without runtime/type errors.",
+      "files": [
+        "frontend/src/components/business/BusinessCalculationsTable.tsx",
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/types/businessRecord.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

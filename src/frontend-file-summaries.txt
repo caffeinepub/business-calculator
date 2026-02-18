@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component with view state management to toggle between the business calculations table and supplier-wise report views.",
+  "frontend/src/types/businessRecord.ts": "TypeScript type definitions for BusinessRecord with sorDate and orderDate fields added, along with custom column support and CustomColumnDefinition interface for user-defined columns.",
+  "frontend/src/utils/calculations.ts": "Pure calculation functions for computing Amount and Order Amount with currency formatting utilities.",
+  "frontend/src/utils/validation.ts": "Validation utilities for numeric fields with error messages and safe number parsing.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for CRUD operations on business records and custom columns with localStorage persistence for column definitions and mock data updated to include sorDate and orderDate fields.",
+  "frontend/src/components/business/EditableCell.tsx": "Reusable editable cell component supporting text, number, date, and select input types with inline validation.",
+  "frontend/src/components/business/DeleteRecordDialog.tsx": "Confirmation dialog component for deleting records using AlertDialog from shadcn/ui.",
+  "frontend/src/components/business/BusinessCalculationsTable.tsx": "Main table component with inline editing, add/edit/delete functionality, automatic calculation of derived fields, dynamic rendering of custom columns, and new SOR Date and Order Date columns positioned correctly before their respective number columns.",
+  "frontend/src/pages/BusinessCalculationsTablePage.tsx": "Page component that orchestrates data loading, mutations, custom column management, and renders the table with header, footer, Manage Columns button, and new Supplier Report navigation button.",
+  "frontend/src/index.css": "Global styles with OKLCH color system using raw channel triplets (not wrapped) for sky blue and white palette in both light and dark modes, including print-specific styles for clean report printing.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom fonts, extended color tokens, shadows, and design system tokens.",
+  "frontend/src/components/business/ManageColumnsDialog.tsx": "Dialog component for managing custom columns with add, rename, reorder (up/down), and delete functionality using shadcn/ui components.",
+  "frontend/src/pages/SupplierWiseReportPage.tsx": "Supplier-wise report page that groups business records by supplier name, displays order-related columns (Order Qty, Order Rate, GST %, Order Amount), computes supplier subtotals and grand total based on Order Amount using calculateOrderAmount, and provides CSV export and print functionality.",
+  "frontend/src/utils/exportSupplierReportCsv.ts": "CSV export utility that generates a downloadable CSV file containing supplier-grouped records with order columns (Order Qty, Order Rate, GST %, Order Amount), subtotals and grand total computed from Order Amount, properly escaping values for CSV format.",
+  "frontend/index.css": "Global CSS file with sky blue and white OKLCH color palette for light and dark modes, including print styles for clean report printing."
+}

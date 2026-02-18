@@ -1,0 +1,85 @@
+{
+  "kind": "build_request",
+  "title": "Add SOR Date and Order Date columns to the main business table",
+  "projectName": "Business Calculator",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-22",
+      "text": "Add two new fixed date columns to the main Business Calculations table UI: (1) \"SOR Date\" displayed immediately before \"SOR No\", and (2) \"Order Date\" displayed immediately before \"Order No\". Both columns must support inline add/edit behavior consistent with existing fixed columns.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Want to add SOR Date column prior to SOR No. And Order Date column prior to Order No."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The table header shows columns in this order: \"Sr No\", \"SOR Date\", \"SOR No\", ... and ... \"Status\", \"Order Date\", \"Order No\", ... (with all other existing columns preserved in their current relative order).",
+        "When editing an existing row, both date cells are editable inline and save/cancel behaves the same as other editable cells.",
+        "When creating a new row, both date cells are present and editable inline before saving the new record.",
+        "The visual styling and spacing of the new columns match the existing table style and do not break horizontal scrolling or header alignment."
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Extend the BusinessRecord TypeScript types and frontend data layer to include the two new fields: `sorDate` and `orderDate`, and ensure these fields are included in create/update flows and mock seed data so the app continues to function end-to-end without runtime/type errors.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Want to add SOR Date column prior to SOR No. And Order Date column prior to Order No."
+        ]
+      },
+      "acceptanceCriteria": [
+        "`BusinessRecord` and `BusinessRecordInput` include `sorDate` and `orderDate` fields.",
+        "Creating a new record includes `sorDate` and `orderDate` values in the stored record object (including the current mock implementation in `useQueries.ts`).",
+        "Existing mock records are updated to include valid `sorDate` and `orderDate` values (or empty values) so the table renders without missing-field issues."
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "text": "Update the Motoko backend BusinessRecord persistence to store and return the new `sorDate` and `orderDate` fields as part of business calculation records, so that when backend persistence is used these two date values round-trip correctly through create/list/update operations. Add a conditional migration if needed to preserve existing stored records during upgrade.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Want to add SOR Date column prior to SOR No. And Order Date column prior to Order No."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend record type/schema includes `sorDate` and `orderDate` fields.",
+        "Create/list/update operations return the same `sorDate` and `orderDate` values that were provided by the frontend.",
+        "If existing stable data would otherwise fail to decode after schema change, a conditional `backend/migration.mo` is added so existing records are preserved and default values are applied for the new fields."
+      ]
+    }
+  ],
+  "constraints": [
+    "Keep all Motoko logic in the single main actor (backend/main.mo); only add backend/migration.mo if required by an upgrade that would break existing state decoding.",
+    "Do not edit files under frontend/src/components/ui or any other frontend immutable paths; compose existing UI components instead."
+  ],
+  "nonGoals": [
+    "Adding date-based filters, sorting, or reporting changes for the new date fields.",
+    "Changing the supplier-wise report layout or CSV export to include the new date columns (unless required to prevent breakage)."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

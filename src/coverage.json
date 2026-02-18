@@ -1,0 +1,66 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-17T16:51:19.668Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-22",
+        "summary": "Add two new fixed date columns to the main Business Calculations table UI: (1) \"SOR Date\" displayed immediately before \"SOR No\", and (2) \"Order Date\" displayed immediately before \"Order No\". Both columns must support inline add/edit behavior consistent with existing fixed columns.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/business/EditableCell.tsx",
+          "frontend/src/components/business/BusinessCalculationsTable.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/business/EditableCell.tsx",
+          "frontend/src/components/business/BusinessCalculationsTable.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Extend the BusinessRecord TypeScript types and frontend data layer to include the two new fields: `sorDate` and `orderDate`, and ensure these fields are included in create/update flows and mock seed data so the app continues to function end-to-end without runtime/type errors.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/types/businessRecord.ts",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/business/BusinessCalculationsTable.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/types/businessRecord.ts",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/business/BusinessCalculationsTable.tsx"
+        ]
+      },
+      {
+        "id": "REQ-24",
+        "summary": "Update the Motoko backend BusinessRecord persistence to store and return the new `sorDate` and `orderDate` fields as part of business calculation records, so that when backend persistence is used these two date values round-trip correctly through create/list/update operations. Add a conditional migration if needed to preserve existing stored records during upgrade.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/business/BusinessCalculationsTable.tsx",
+    "frontend/src/components/business/EditableCell.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/types/businessRecord.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

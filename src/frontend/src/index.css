@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Sky blue and white palette - Light mode */
+    --background: 0.99 0.005 240;
+    --foreground: 0.15 0.02 240;
+
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 240;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 240;
+
+    --primary: 0.55 0.18 240;
+    --primary-foreground: 0.99 0.005 240;
+
+    --secondary: 0.92 0.02 240;
+    --secondary-foreground: 0.2 0.02 240;
+
+    --muted: 0.95 0.01 240;
+    --muted-foreground: 0.45 0.02 240;
+
+    --accent: 0.88 0.04 240;
+    --accent-foreground: 0.2 0.02 240;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0.005 240;
+
+    --success: 0.6 0.15 145;
+    --success-foreground: 0.99 0.005 240;
+
+    --warning: 0.7 0.18 75;
+    --warning-foreground: 0.15 0.02 240;
+
+    --border: 0.88 0.02 240;
+    --input: 0.88 0.02 240;
+    --ring: 0.55 0.18 240;
+
+    --chart-1: 0.65 0.2 240;
+    --chart-2: 0.6 0.15 200;
+    --chart-3: 0.55 0.18 260;
+    --chart-4: 0.7 0.16 220;
+    --chart-5: 0.6 0.14 280;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Sky blue and white palette - Dark mode */
+    --background: 0.12 0.02 240;
+    --foreground: 0.95 0.01 240;
+
+    --card: 0.15 0.02 240;
+    --card-foreground: 0.95 0.01 240;
+
+    --popover: 0.15 0.02 240;
+    --popover-foreground: 0.95 0.01 240;
+
+    --primary: 0.65 0.2 240;
+    --primary-foreground: 0.12 0.02 240;
+
+    --secondary: 0.22 0.03 240;
+    --secondary-foreground: 0.95 0.01 240;
+
+    --muted: 0.2 0.02 240;
+    --muted-foreground: 0.6 0.02 240;
+
+    --accent: 0.28 0.04 240;
+    --accent-foreground: 0.95 0.01 240;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.95 0.01 240;
+
+    --success: 0.6 0.15 145;
+    --success-foreground: 0.12 0.02 240;
+
+    --warning: 0.7 0.18 75;
+    --warning-foreground: 0.12 0.02 240;
+
+    --border: 0.25 0.03 240;
+    --input: 0.25 0.03 240;
+    --ring: 0.65 0.2 240;
+
+    --chart-1: 0.65 0.2 240;
+    --chart-2: 0.6 0.15 200;
+    --chart-3: 0.55 0.18 260;
+    --chart-4: 0.7 0.16 220;
+    --chart-5: 0.6 0.14 280;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Print styles */
+@media print {
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+
+  /* Ensure tables don't break across pages */
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* Ensure supplier groups stay together when possible */
+  .space-y-8 > div {
+    page-break-inside: avoid;
+  }
+
+  /* Make sure borders print */
+  .border,
+  .border-b,
+  .border-t,
+  .border-border {
+    border-color: oklch(0.7 0.02 240) !important;
+  }
+
+  /* Ensure background colors print for subtotals */
+  .bg-muted\/50 {
+    background-color: oklch(0.95 0.01 240) !important;
+  }
+
+  .bg-primary\/5 {
+    background-color: oklch(0.95 0.05 240) !important;
+  }
+
+  /* Ensure text is readable */
+  .text-primary {
+    color: oklch(0.45 0.18 240) !important;
+  }
+
+  .text-foreground {
+    color: oklch(0.15 0.02 240) !important;
+  }
+
+  .text-muted-foreground {
+    color: oklch(0.45 0.02 240) !important;
+  }
+}
